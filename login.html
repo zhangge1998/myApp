@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0; }
+        body{ background: #f0f0f0; }
+        #wrap{width: 350px; height: 380px; margin: 100px auto; background: white; position: relative;}
+        #login,#register{width: 100%; position: absolute;box-sizing: border-box; padding: 10px; text-align: center;}
+        .title{ text-align: center ; margin-bottom: 40px; }
+        #login label, #register label{ display: block; height: 40px; line-height: 40px; overflow: hidden;}
+        #login input, #register input{ padding: 5px;position: relative; left: 10px;}
+        .submit{ width: 50px; height: 30px; position: relative; top: 45px; border-radius: 5px; outline: none; border: none; background-color: #175199; color: white;}
+        #tip{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            border-top: grey 1px solid;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        #register{ display: none; }
+        #tip span{
+            color: #175199;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="login">
+        <h1 class="title">登录</h1>
+        <form action="">
+            <label for="name">
+                <span>手机号：</span><input type="text" id="name">
+            </label>
+            <label for="pass">
+                <span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="text" id="pass">
+            </label>
+            <button type="submit" class="submit">登 入</button>
+        </form>
+    </div>
+    <div id="register">
+        <h1 class="title">注册</h1>
+        <form action="">
+            <label for="name">
+                <span>手机号：</span><input type="text" id="user_name">
+            </label>
+            <label for="pass">
+                <span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="text" id="user_pass">
+            </label>
+            <button type="submit" class="submit">注 册</button>
+        </form>
+    </div>
+    <div  id="tip">
+        没有账号?<span onclick="change()">注册</span>
+    </div>
+</div>
+<script>
+    function change(){
+        var oRes = document.getElementById('register');
+        var oLog = document.getElementById('login');
+        var oDiv = document.getElementById('tip');
+        var oTip = oDiv.querySelector('span');
+        if(oTip.innerText == '注册'){
+            oLog.style.display = 'none';
+            oRes.style.display = 'block';
+            oDiv.innerHTML = '已有账号?<span onclick="change()">登录</span>';
+        }
+        else{
+            oRes.style.display = 'none';
+            oLog.style.display = 'block';
+            oDiv.innerHTML = '没有账号?<span onclick="change()">注册</span>';
+        }
+    }
+
+</script>
+</body>
+</html>
